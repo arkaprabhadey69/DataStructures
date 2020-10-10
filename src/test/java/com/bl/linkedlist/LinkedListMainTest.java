@@ -96,4 +96,72 @@ public class LinkedListMainTest {
         boolean result = L.head.equals(myFirstNode) && L.head.getNext().equals(mySecondNode);
         Assert.assertTrue(result);
     }
+    @Test
+    public void given3NumbersShouldSearch() {
+        LinkedListMain<Integer> myFirstNode = new LinkedListMain<>(56);
+        LinkedListMain<Integer> mySecondNode = new LinkedListMain<>(30);
+        LinkedListMain<Integer> myThirdNode = new LinkedListMain<>(70);
+        MyLinkedList L = new MyLinkedList();
+        L.insert(myFirstNode);
+        L.insert(mySecondNode);
+        L.insert(myThirdNode);
+        INode element=L.search(myThirdNode);
+        L.printLinkedList();
+        System.out.println(MyLinkedList.getCount());
+        System.out.println(element);
+        boolean result = element.getKey().equals(myThirdNode.getKey());
+        Assert.assertTrue(result);
+    }
+    @Test
+    public void givenFewNumbersShouldAddNewElementAtSpecificPosition() {
+        LinkedListMain<Integer> myFirstNode = new LinkedListMain<>(56);
+        LinkedListMain<Integer> mySecondNode = new LinkedListMain<>(30);
+        LinkedListMain<Integer> myThirdNode= new LinkedListMain<>(70);
+        LinkedListMain<Integer> myNewNode = new LinkedListMain<>(40);
+        MyLinkedList L = new MyLinkedList();
+        L.insert(myFirstNode);
+        L.insert(mySecondNode);
+        L.insert(myThirdNode);
+        L.insertAfter(mySecondNode, myNewNode);
+        L.printLinkedList();
+        System.out.println(MyLinkedList.getCount());
+        boolean result = L.head.equals(myFirstNode) && L.head.getNext().equals(mySecondNode) &&
+                L.head.getNext().getNext().equals(myNewNode)&&L.tail.equals(myThirdNode);
+        Assert.assertTrue(result);
+    }
+    @Test
+    public void givenFewNumbersShouldDeleteNewElementAtSpecificPosition() {
+        LinkedListMain<Integer> myFirstNode = new LinkedListMain<>(56);
+        LinkedListMain<Integer> mySecondNode = new LinkedListMain<>(30);
+        LinkedListMain<Integer> myThirdNode= new LinkedListMain<>(70);
+        LinkedListMain<Integer> myNewNode = new LinkedListMain<>(40);
+        MyLinkedList L = new MyLinkedList();
+        L.insert(myFirstNode);
+        L.insert(mySecondNode);
+        L.insert(myNewNode);
+        L.insert(myThirdNode);
+        L.deleteAtIndex(myNewNode);
+        L.printLinkedList();
+        System.out.println(MyLinkedList.getCount());
+        boolean result = L.head.equals(myFirstNode) && L.head.getNext().equals(mySecondNode) &&L.tail.equals(myThirdNode);
+        Assert.assertTrue(result);
+    }
+    @Test
+    public void givenFewNumbersShouldBeSorted() {
+        LinkedListMain<Integer> myFirstNode = new LinkedListMain<>(56);
+        LinkedListMain<Integer> mySecondNode = new LinkedListMain<>(30);
+        LinkedListMain<Integer> myThirdNode= new LinkedListMain<>(70);
+        LinkedListMain<Integer> myNewNode = new LinkedListMain<>(40);
+        MyLinkedList L = new MyLinkedList();
+        L.addSorted(myFirstNode);
+        L.addSorted(mySecondNode);
+        L.addSorted(myNewNode);
+        L.addSorted(myThirdNode);
+       // L.deleteAtIndex(myNewNode);
+        L.printLinkedList();
+        System.out.println(MyLinkedList.getCount());
+//        boolean result = L.head.equals(myFirstNode) && L.head.getNext().equals(mySecondNode) &&L.tail.equals(myThirdNode);
+//        Assert.assertTrue(result);
+    }
+
 }
