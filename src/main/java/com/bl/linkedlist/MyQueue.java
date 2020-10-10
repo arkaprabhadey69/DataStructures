@@ -20,7 +20,7 @@ public class MyQueue {
     public int returnSize() {
         return size;
     }
-
+//Method to perform dequeue
     public INode deQueue() {
         size--;
         return myLinkedList.pop();
