@@ -104,7 +104,7 @@ public class MyLinkedList {
         }
         return null;
     }
-
+//Method to delete at a specific index
     public INode deleteAtIndex(INode element) {
         count--;
         if (head.equals(element)) {
@@ -156,3 +156,4 @@ public class MyLinkedList {
 
     }
 }
+
