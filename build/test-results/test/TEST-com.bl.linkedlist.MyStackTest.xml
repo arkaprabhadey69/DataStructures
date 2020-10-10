@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.bl.linkedlist.MyStackTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-10-10T09:17:21" hostname="LAPTOP-JP0FR8LN" time="0.01">
-  <properties/>
-  <testcase name="givenElementsShouldPopLIFOManner" classname="com.bl.linkedlist.MyStackTest" time="0.01"/>
-  <system-out><![CDATA[My Nodes: 30->56
-Size of stack is 2
-]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
