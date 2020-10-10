@@ -18,6 +18,7 @@ public class MyLinkedList {
         this.tail = null;
         count = 0;
     }
+//Method to add elements from front
 
     public void add(INode newNode) {
         count++;
