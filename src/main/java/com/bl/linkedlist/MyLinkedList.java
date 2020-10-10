@@ -70,7 +70,7 @@ public class MyLinkedList {
         this.head = head.getNext();
         return tempNode;
     }
-
+//Method to pop last element
     public INode popLast() throws NullPointerException {
         count--;
         if (this.head == null)
