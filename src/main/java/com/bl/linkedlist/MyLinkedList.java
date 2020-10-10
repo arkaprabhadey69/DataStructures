@@ -120,7 +120,7 @@ public class MyLinkedList {
         deletedElement.setNext(deletedElement.getNext().getNext());
         return tempNode;
     }
-
+//Method to create sorted linked list
     public void addSorted(INode newNode) {
         count++;
         INode currentNode = this.head;
