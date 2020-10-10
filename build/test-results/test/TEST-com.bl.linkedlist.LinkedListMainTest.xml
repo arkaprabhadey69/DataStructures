@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.bl.linkedlist.LinkedListMainTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-10-10T08:31:21" hostname="LAPTOP-JP0FR8LN" time="0.005">
-  <properties/>
-  <testcase name="givenFewNumbersShouldBeSorted" classname="com.bl.linkedlist.LinkedListMainTest" time="0.005"/>
-  <system-out><![CDATA[My Nodes: 30->40->56->70
-4
-]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
