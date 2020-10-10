@@ -33,7 +33,7 @@ public class MyLinkedList {
             this.head.setNext(tempNode);
         }
     }
-
+//Method to add elements from the back
     public void insert(INode newNode) {
         count++;
         if (this.tail == null) {
