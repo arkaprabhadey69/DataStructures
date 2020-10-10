@@ -63,7 +63,7 @@ public class MyLinkedList {
         newNode.setNext(tempNode.getNext());
         tempNode.setNext(newNode);
     }
-
+//Method to pop first element
     public INode pop() {
         count--;
         INode tempNode = this.head;
