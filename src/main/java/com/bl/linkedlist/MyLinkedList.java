@@ -1,8 +1,8 @@
 package com.bl.linkedlist;
 
-public class MyLinkedList {
-    public INode head;
-    public INode tail;
+public class MyLinkedList<K> {
+    public INode<K> head;
+    public INode<K> tail;
     public static int count;
 
     public void displayMessage() {
@@ -20,7 +20,7 @@ public class MyLinkedList {
     }
 //Method to add elements from front
 
-    public void add(INode newNode) {
+    public void add(INode<K> newNode) {
         count++;
         if (this.tail == null) {
             this.tail = newNode;
@@ -28,14 +28,14 @@ public class MyLinkedList {
         if (this.head == null) {
             this.head = newNode;
         } else {
-            INode tempNode = this.head;
+            INode<K> tempNode = this.head;
             this.head = newNode;
             this.head.setNext(tempNode);
         }
     }
 
     //Method to add elements from the back
-    public void insert(INode newNode) {
+    public void insert(INode<K> newNode) {
         count++;
         if (this.tail == null) {
             this.tail = newNode;
@@ -44,7 +44,7 @@ public class MyLinkedList {
         if (this.head == null) {
             this.head = newNode;
         } else {
-            INode tempNode = this.head;
+            INode<K> tempNode = this.head;
             while (tempNode.getNext() != null) {
                 tempNode = tempNode.getNext();
             }
@@ -55,10 +55,11 @@ public class MyLinkedList {
         }
     }
 
+
     //Method to insert after a specified element
-    public void insertAfter(INode destNode, INode newNode) {
+    public void insertAfter(INode<K> destNode, INode<K> newNode) {
         count++;
-        INode tempNode = this.head;
+        INode<K> tempNode = this.head;
         while (!tempNode.getKey().equals(destNode.getKey())) {
             tempNode = tempNode.getNext();
         }
@@ -67,36 +68,34 @@ public class MyLinkedList {
     }
 
     //Method to pop first element
-    public INode pop() {
+    public INode<K> pop() {
         count--;
-        INode tempNode = this.head;
+        INode<K> tempNode = this.head;
         this.head = head.getNext();
         return tempNode;
     }
 
     //Method to pop last element
-    public INode popLast() throws NullPointerException {
+    public INode<K> popLast() throws NullPointerException {
         count--;
         if (this.head == null)
             return null;
-        if (this.head.getNext().equals(null))
-            return null;
         else {
-            INode tempNode = head;
+            INode<K> tempNode = head;
             while (!tempNode.getNext().equals(tail)) {
                 tempNode = tempNode.getNext();
             }
-            INode tempNode1 = tempNode.getNext();
+            INode<K> tempNode1 = tempNode.getNext();
             tempNode.setNext(null);
             return tempNode1;
         }
     }
 //Method To Search For a Specific Node
-    public INode search(INode element) {
+    public INode<K> search(INode<K> element) {
         if (this.head.equals(element))
             return this.head;
 
-        INode tempNode = head;
+        INode<K> tempNode = head;
         while (tempNode != null) {
             tempNode = tempNode.getNext();
             if (tempNode.equals(element))
@@ -104,27 +103,58 @@ public class MyLinkedList {
         }
         return null;
     }
+    //Method To Search For a Specific Node By Key
+    public INode<K> search(K key) {
+       if(head==null)
+           return null;
+
+        INode<K> tempNode = this.head;
+        while (tempNode != null) {
+            if (tempNode.getKey().equals(key))
+                return tempNode;
+            tempNode =tempNode.getNext();
+        }
+        return null;
+    }
 //Method to delete at a specific index
-    public INode deleteAtIndex(INode element) {
+    public INode<K> deleteAtIndex(INode<K> element) {
         count--;
         if (head.equals(element)) {
-            INode del = head;
+            INode<K> del = head;
             head = head.getNext();
             return del;
         }
-        INode deletedElement = head;
+        INode<K> deletedElement = head;
         while (!deletedElement.getNext().equals(element)) {
             deletedElement = deletedElement.getNext();
         }
-        INode tempNode = deletedElement.getNext();
+        INode<K> tempNode = deletedElement.getNext();
+        deletedElement.setNext(deletedElement.getNext().getNext());
+        return tempNode;
+    }
+
+    public INode<K> deleteAtIndex(K key) {
+        count--;
+        if(head==null)
+            return null;
+        if (head.getKey().equals(key)) {
+            INode<K> del = head;
+            head = head.getNext();
+            return del;
+        }
+        INode<K> deletedElement = head;
+        while (!deletedElement.getNext().getKey().equals(key)) {
+            deletedElement = deletedElement.getNext();
+        }
+        INode<K> tempNode = deletedElement.getNext();
         deletedElement.setNext(deletedElement.getNext().getNext());
         return tempNode;
     }
 //Method to create sorted linked list
-    public void addSorted(INode newNode) {
+    public void addSorted(INode<K> newNode) {
         count++;
-        INode currentNode = this.head;
-        INode prevNode = null;
+        INode<K> currentNode = this.head;
+        INode<K> prevNode = null;
         while (currentNode != null && (int) newNode.getKey() > (int) currentNode.getKey()) {
             prevNode = currentNode;
             currentNode = currentNode.getNext();
@@ -142,7 +172,7 @@ public class MyLinkedList {
 
     public void printLinkedList() {
         StringBuffer myNodes = new StringBuffer("My Nodes: ");
-        INode tempNode = head;
+        INode<K> tempNode = head;
         while (tempNode.getNext() != null) {
             myNodes.append(tempNode.getKey());
             if (!tempNode.getNext().equals(null))

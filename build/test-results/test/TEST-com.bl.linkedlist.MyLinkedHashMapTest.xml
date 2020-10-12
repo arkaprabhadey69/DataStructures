@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.bl.linkedlist.MyLinkedHashMapTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-10-12T08:49:02" hostname="LAPTOP-JP0FR8LN" time="0.014">
+  <properties/>
+  <testcase name="givenSentenceReturnParanoidFrequency" classname="com.bl.linkedlist.MyLinkedHashMapTest" time="0.014"/>
+  <system-out><![CDATA[Word : themselves Value : 1
+Word : people Value : 1
+Word : but Value : 1
+Word : keep Value : 1
+Word : are Value : 2
+Word : they Value : 2
+Word : into Value : 1
+Nothing here
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
