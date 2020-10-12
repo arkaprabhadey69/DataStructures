@@ -10,6 +10,10 @@ public class MyBinaryNode<K extends Comparable<K>> {
         leftTree=null;
         rightTree=null;
     }
+    public String toString()
+    {
+        return key.toString();
+    }
 
     public K getKey() {
         return key;
