@@ -22,7 +22,7 @@ public class MyLinkedHashMap<K, V> {
         MyMapNode<K, V> myMapNode = (MyMapNode<K, V>) myLinkedList.search(word);
         return (myMapNode == null) ? null : myMapNode.getValue();
     }
-
+//Method to get which index of the hashtable to use
     private int getBucketIndex(K word) {
         int hashCode = Math.abs(word.hashCode());
         int index = hashCode % numBuckets;
