@@ -13,7 +13,7 @@ public class MyLinkedHashMap<K, V> {
             this.myBucketArray.add(null);
         }
     }
-
+//Method to get linked list and node using key
     public V get(K word) {
         int index = this.getBucketIndex(word);
         MyLinkedList<K> myLinkedList = this.myBucketArray.get(index);
@@ -28,7 +28,7 @@ public class MyLinkedHashMap<K, V> {
         int index = hashCode % numBuckets;
         return index;
     }
-
+//Method to add a new word
     public void add(K word, V value) {
         int index = this.getBucketIndex(word);
         MyLinkedList<K> myLinkedList = this.myBucketArray.get(index);
@@ -46,7 +46,7 @@ public class MyLinkedHashMap<K, V> {
         }
 
     }
-
+//Method to delete an occurrence of a word
     public K delete(K word) {
         int index = this.getBucketIndex(word);
         MyLinkedList<K> myLinkedList = this.myBucketArray.get(index);
