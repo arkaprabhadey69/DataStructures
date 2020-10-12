@@ -1,66 +1,51 @@
 package com.bl.linkedlist;
 
-public class MyBinaryTree<K extends Comparable<K>> {
-    private MyBinaryNode<K> root;
-    public static int size;
+public class MyBinaryTree <K extends Comparable<K>>{
+    MyBinaryNode<K> root;
 
-    public MyBinaryTree() {
-        this.root = null;
+    // Add Node to BST
+    public void add(K key) {
+        this.root = addRecursively(root, key);
     }
 
-    public void add(K key)
-    {
-        this.root=this.addRecursive(root,key);
-    }
-
-    private MyBinaryNode<K> addRecursive(MyBinaryNode<K> current, K key) {
-        if(current==null)
-            return new MyBinaryNode<K>(key);
-        int compareResult=key.compareTo(current.key);
-        if(compareResult==0) return current;
-        if(compareResult<0){
-            current.leftTree=addRecursive(current.leftTree,key);
-
-        }else
-            current.rightTree=addRecursive(current.rightTree,key);
-        return current;
-    }
-    private MyBinaryNode<K> searchRecursive(MyBinaryNode<K> current, K key) {
-        if(current==null)
+    // Recursive Function
+    private MyBinaryNode<K> addRecursively(MyBinaryNode<K> current, K key) {
+        if (current == null)
             return new MyBinaryNode<>(key);
-        int compareResult=key.compareTo(current.key);
-        if(compareResult==0) return current;
-        if(compareResult<0){
-            current.leftTree=searchRecursive(current.leftTree,key);
-
-        }else
-            current.rightTree=searchRecursive(current.rightTree,key);
+        int compareResult = key.compareTo(current.key);
+        if (compareResult == 0)
+            return current;
+        if (compareResult < 0)
+            current.left = addRecursively(current.left, key);
+        else
+            current.right = addRecursively(current.right, key);
         return current;
     }
 
-    public void inOrderTraversal()
-    {
-        inOrderHelper(root);
-    }
-    private void inOrderHelper(MyBinaryNode<K> current)
-    {
-        if (current!= null)
-        {
-            size++;
-            inOrderHelper(current.leftTree);
-            System.out.print(current+" ");
-            inOrderHelper(current.rightTree);
-        }
+    // Height Of BST
+    public int getSize() {
+        return this.getSizeRecursive(root);
     }
 
-
-    public int getSize(){
-        return this.getSizeOfTree(root);
-    }
-    private  int getSizeOfTree(MyBinaryNode<K> current){
-        return (current==null)?0:1+getSizeOfTree(current.leftTree)+getSizeOfTree(current.leftTree);
+    // Recursive Function
+    private int getSizeRecursive(MyBinaryNode<K> current) {
+        return current == null ? 0 : 1 + getSizeRecursive(current.left) + getSizeRecursive(current.right);
     }
 
+    public boolean search(K key) {
+        return searchRecursive(root, key) != null;
+    }
 
+    // Recursive Search function
+    private MyBinaryNode<K> searchRecursive(MyBinaryNode<K> current, K key) {
+        if (current == null)
+            return null;
+        else if (current.key.compareTo(key) == 0)
+            return current;
+        else if (current.key.compareTo(key) < 0)
+            return searchRecursive(current.right, key);
+        else
+            return searchRecursive(current.left, key);
+    }
 
 }
